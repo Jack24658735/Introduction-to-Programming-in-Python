@@ -4,7 +4,7 @@
 * Instructor: Pai-Chou
 * Year: 2019-Fall
 
-> This is a self_check practice codes collection, including some bonus projects.
+> This is a self check practice codes collection, including some bonus projects.
 
 
 
