@@ -1,5 +1,10 @@
 # Introduction to Programming in Python
 
-*Self check
+* Course Number: CS 135800
+* Instructor: Pai-Chou
+* Year: 2019-Fall
+
+> This is a self_check practice codes collection, including some bonus projects.
+
 
 
