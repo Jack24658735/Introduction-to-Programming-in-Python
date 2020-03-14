@@ -1,0 +1,8 @@
+#1 red
+#2 pink
+#3 blue
+#4 green
+#5 purple
+#6 orange
+#7 brown
+#8 yellow
