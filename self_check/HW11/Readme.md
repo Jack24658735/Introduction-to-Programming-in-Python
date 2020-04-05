@@ -8,9 +8,9 @@ The constructor takes variable-length arguments for the coefficients for polynom
 
 The supported operations include: 
 
-*adding or subtracting two polynomial functions to make another polynomial function by overloading the + and - operators.\
-*evaluating a polynomial function for a given value of x\
-*scaling a polynomial by implementing the \_\_imul\_\_ special method
+>adding or subtracting two polynomial functions to make another polynomial function by overloading the + and - operators.\
+>evaluating a polynomial function for a given value of x\
+>scaling a polynomial by implementing the \_\_imul\_\_ special method
 
 
 ```
