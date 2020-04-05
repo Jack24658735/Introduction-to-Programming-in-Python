@@ -44,7 +44,7 @@ a.	The constructor should take two arguments (degree, unit):
 
 b.	degree is an int or float
 
-### i.	The constructor needs to check if degree is an int or float; if not, raise a TypeError.
+###### i.	The constructor needs to check if degree is an int or float; if not, raise a TypeError.
 c.	unit defaults to 'C' for Celsius, but it can be 'F' for Fahrenheit
 
 ### i.	The constructor needs to check if the unit is an allowed character; if not, raise a ValueError.  Actually, lower case 'c' and 'f' are also accepted, but they should be converted to the upper case.
