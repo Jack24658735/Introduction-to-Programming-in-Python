@@ -35,7 +35,10 @@ a.	operator overloading for + and -.  The unit of the operation defaults to the 
 
 b.	changing units, including 'C' (Celsius), 'F' (Fahrenheit)
 
+```
 Note: define __add__(self, RHS) and __sub__(self, RHS) methods to overload the + and - operators. You must check the RHS (= "right hand side") parameter's type to make sure it is an instance of Temperature (base class is okay -- doesn't have to be NewTemp), or it could be a number (int or float).  If it is a Temperature, convert it to the same unit as self's unit before adding or subtracting.  If it is a number (int or float), simply assume it is of the same unit.
+```
+
 ```
 >>> t = NewTemp(20, 'C')
 >>> t + 3
@@ -57,7 +60,7 @@ NewTemp(122.0, 'F')
 
 ## 11_3
 (Difficulty: ★★★★☆) Write a NewList class by inheriting from the built-in list class to support the following operations:
-a.	list multiplication (also known as cross-product) by overloading the @ operator (define the \__matmul\__(self, RHS) special method)
+a.	list multiplication (also known as cross-product) by overloading the @ operator (define the \_\_matmul\_\_(self, RHS) special method)
 ```
 >>> NewList([6,7,8]) @ NewList(['a', 'b'])
 NewList([(6, 'a'), (6, 'b'), (7, 'a'), (7, 'b'), (8, 'a'), (8, 'b')])
