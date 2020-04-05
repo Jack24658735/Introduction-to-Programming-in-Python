@@ -29,12 +29,12 @@ It should also contain an Entry widget for text entry and a 'push' button.
 The right pane should be a ListBox to show the content of the stack.  For simplicity, the stack grows "downward" so that the bottom of the stack is on the top side of the ListBox, and new items get pushed to below the last item.  Note that [ ] indicates a button that can be clicked.
 
 In the Entry field, you may enter any valid Python expressions that can be pushed. You can also push buttons to enter instead.  Using the code from the previous assignment, you should be able to enter 
-
+```
 date(year, month, day)
 days(d)
 weeks(w)
 months(m)
-
+```
 Hint: you may use the eval() function to convert from the text in the Entry into the corresponding Python data structure.  To be safe, you would want to allow access to only your date, days, weeks, and month classes but block out other symbols.  Note that the user could type in arbitrary code, but if an exception occurs during eval(), or if eval() does not return a valid type, then you may indicate error in the "error message here" (as a Label) shown in the example above.
 
 The ListBox should display the same content as shown in the list returned by datecalc() function.  Unlike the word finder example, where the entire content is deleted before new content is added on every refresh, here you only need to remove the bottom entry for a pop, or append the new entry to the end for a push.
