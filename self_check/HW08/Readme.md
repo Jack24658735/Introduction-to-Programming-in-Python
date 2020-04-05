@@ -10,6 +10,10 @@
 ## 8_3
 (Difficulty: ★★★☆☆) Write a function that can take a variable number of parameters to make a postfix calculator.  The parameter list consists of either the operands or the operators.  An operand is a number (int or float) and is pushed on the stack.  An operator is a string that indicates the action to take.  A binary arithmetic operator pops the top two elements from the stack and pushes back the result. 
 
+| 表格      | argument     | action     |
+| ---------- | :-----------:  | :-----------: |
+| 第一行     | 第一列     | 第二列     |
+
 | argument | action |
 int or float literal	push int or float literal onto stack
 'add'	A = pop(); B = pop(); push(A+B) 
