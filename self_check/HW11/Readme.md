@@ -34,9 +34,9 @@ Polynomial(6, 4, 0, 10, 8)
 a.	operator overloading for + and -.  The unit of the operation defaults to the unit of the left-hand-side.\
 b.	changing units, including 'C' (Celsius), 'F' (Fahrenheit)
 
-Note: define __add__(self, RHS) and __sub__(self, RHS) methods to overload the + and - operators. \
+Note: define \_\_add\_\_(self, RHS) and \_\_sub\_\_(self, RHS) methods to overload the + and - operators. \
 You must check the RHS (= "right hand side") parameter's type to make sure it is an instance of Temperature (base class is okay -- doesn't have to be NewTemp), or it could be a number (int or float). \
-If it is a Temperature, convert it to the same unit as self's unit before adding or subtracting.  If it is a number (int or float), simply assume it is of the same unit.\
+If it is a Temperature, convert it to the same unit as self's unit before adding or subtracting.  If it is a number (int or float), simply assume it is of the same unit.
 
 
 ```
