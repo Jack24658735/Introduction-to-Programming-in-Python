@@ -1,0 +1,11 @@
+# operation list:
+
+# help - check the operation list.
+# look - print Tiki line in the screen.
+# Tiki up 1 - move a tiki up 1 space in the line. 
+# Tiki up 2 - move a tiki up 2 space in the line.
+# Tiki up 3 - move a tiki up 3 space in the line.
+# Tiki Topple - move a tiki to the bottom of the line.
+# Tiki Toast - remove the tiki at the bottom of the line.
+# Reset - Reset Tiki line.
+# quit - quit the game and say goodbye.
