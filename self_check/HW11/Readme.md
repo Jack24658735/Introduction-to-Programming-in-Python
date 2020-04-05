@@ -6,10 +6,14 @@ f(x) = a<sub>0</sub> + a<sub>1</sub>x + a<sub>2</sub>x<sup>2</sup> + a<sub>3</su
 
 The constructor takes variable-length arguments for the coefficients for polynomials to the 0, 1, 2, … degrees.
 
-The supported operations include 
+The supported operations include
+
 ●	adding or subtracting two polynomial functions to make another polynomial function by overloading the + and - operators. (i.e., define __add__ and __sub__ special methods)
+
 ●	evaluating a polynomial function for a given value of x
+
 ●	scaling a polynomial by implementing the __imul__ special method
+
 ```
 >>> f = Polynomial(3, 2, 0, 5, 4)
 >>> g = Polynomial(7, 4, 1)
@@ -51,9 +55,9 @@ NewTemp(122.0, 'F')
 ```
 
 
-
-3.	(Difficulty: ★★★★☆) Write a NewList class by inheriting from the built-in list class to support the following operations:
-a.	list multiplication (also known as cross-product) by overloading the @ operator (define the __matmul__(self, RHS) special method)
+## 11_3
+(Difficulty: ★★★★☆) Write a NewList class by inheriting from the built-in list class to support the following operations:
+a.	list multiplication (also known as cross-product) by overloading the @ operator (define the \__matmul\__(self, RHS) special method)
 ```
 >>> NewList([6,7,8]) @ NewList(['a', 'b'])
 NewList([(6, 'a'), (6, 'b'), (7, 'a'), (7, 'b'), (8, 'a'), (8, 'b')])
