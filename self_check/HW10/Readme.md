@@ -2,7 +2,7 @@
 
 ## 10_1
 (Difficulty: ★★☆☆☆) Define a class for a polynomial for a single variable x with integer coefficients and powers.   That is,
-f(x) = a0 + a1 x + a2 x2 + a3 x3 + a4 x4 +  ...
+f(x) = a<sub>0</sub> + a<sub>1</sub>x + a<sub>2</sub>x<sup>2</sup> + a3 x3 + a4 x4 +  ...
 Your Polynomial constructor would take variable-length arguments for the coefficients from the 0th order and up.  For instance, 
               f(x) = 3 + 5 x + 4 x2 + 7 x3 + x4 
 is represented by 
