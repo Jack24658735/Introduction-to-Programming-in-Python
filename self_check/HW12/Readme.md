@@ -1,53 +1,88 @@
-# HW6
+# HW12
 
-## 6_1
-Write a Python program named dateconv.py to prompt the user for date in US format of mm/dd/yyyy (e.g., '02/15/2019' and outputs it in the full format of 'February 15, 2019'.  You may assume the dates are given as decimal literals separated by '/', but you should also check if the dates are in range.  If the dates are out of range, then you should inform the user what is wrong. 
-
-For instance
+## 12_1
+(Difficulty: ★★☆☆☆) Define a generator function CharRange, which generates a range of characters with inclusive bounds.  It takes two parameters for the starting and ending characters.  It yields one character at a time whose unicode number is one closer to the ending.  For example,
 ```
-$ python3 dateconv.py
-enter date in mm/dd/yyyy: 02/15/2019
-February 15, 2019
-enter date in mm/dd/yyyy: 02/29/2019
-Invalidate day 29 for February: not a leap year
-enter date in mm/dd/yyyy: 01/01/2001
-January 1, 2001
-enter date in mm/dd/yyyy: 13/10/2038
-Invalid month 13: should be between 01 and 12
-enter date in mm/dd/yyyy: 10/32/2019
-Invalid day for October: should be between 01..31
-enter date in mm/dd/yyyy: 04/31/2019
-Invalid day for April: should be between 01..30
-enter date in mm/dd/yyyy: quit
-bye
-$ _
+$ python3 -i charrange.py
+>>> cr = CharRange('A', 'E')
+>>> list(cr)
+['A', 'B', 'C', 'D', 'E']
+>>> dr = CharRange('E', 'A')
+>>> list(dr)
+['E', 'D', 'C', 'B', 'A']
+>>> 
 ```
 
-Hint: Build up your program one piece at a time.  First, simply use a loop to prompt for input and check for 'quit'.  If not quit then first use a print statement to check if the input is as you expect.  Once confirmed, you can use str's split() method to split a string by its separator ('/' in this case).  Then, you can check the array of strings, assuming you can convert them to int, and check if each one is within range.  Month can be checked easily.  Day depends on the month, and for the month of February, day also depends on whether the year is a leap year (28 or 29 days).  If any field is invalid, then report the error and loop again.  If all fields are correct then  display the full month string.
-You may store the names of the months all in a list indexed by the month number or in a dictionary keyed by the month.  You may use the leap year function from a previous lecture.
-
-## 6_2
-[somewhat challenging]  Write a Python program named long_multiply(a, b) to return a string that shows the steps in a long multiplication.  (note: a is called the multiplier, and b is the multiplicand) For example
+Hint: the generator looks like
 ```
->>> print(long_multiply(12, 34))
-  12
-x)34
-----
-  48
- 36 
-----
- 408
+def CharRange(start, end):
+    ...
 ```
-Hint:  You should construct the return value of the function by concatenating different strings together.  It is probably easier if you just append the strings into a list and join them by '\n'.join(listOfStrings).
-a)	Before you join the strings, you need to determine the width to format each line.  This is the maximum number of characters needed to represent the multiplier, multiplicand + 2 (because 'x)' takes two positions), and the product.
-b)	Create the following strings and append each one into a list:
-i)	string for the multiplier with the width (right aligned), 
-ii)	'x)' concatenated the multiplicand formatted with width-2 (also right-aligned),
-iii)	string of '-' repeated for width times
-iv)	loop over the partial products of multiplier * each digit of the multiplicand, but each time shifted one position to the left.
-v)	anotherr string of '-' repeated for width times
-vi)	finally, the product as a string, formatted to the same width, right aligned.
-c)	finally, return '\n'.join( list of strings created in above steps )
-Note: you may assume a and b are both nonnegative integers.  Your code should work with integers of any number of digits.
+It helps to convert between the character and the code using the ord() and chr() functions.  To support stepping up or down, you need to check if the start is larger or smaller than the end.  You may use range() to get one value at a time, but range() works for integers only; also, range's bound is exclusive, not inclusive, so you will need to make an adjustment for the bound's value.  A generator uses yield instead of return to pass values back.  After you finish yielding values, you don't have to do anything special, and your function will implicitly return None to mark the end of generation.
 
+
+## 12_2
+(Difficulty: ★★★☆☆) Define an iterable class named DaysInYear for iterating the days in a year.  It takes the year as the argument to the constructor.  Instead of implementing the \_\_iter\_\_ method to return the iterator object, it implements the \_\_getitem\_\_ method to return the ith value.  The index to \_\_getitem\_\_ indicates the ith day of the year, where i = 0 means January 1, i = 1 means January 2, etc.
+```
+$ python3 -i daysinyear.py
+>>> y = DaysInYear(2019)
+>>> y[5]
+'2019.01.04'
+>>> y[364]
+'2019.12.31'
+>>> y[31]
+'2019.02.01'
+>>> y[365]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "daysinyear.py", line 15, in __getitem__
+    raise StopIteration
+StopIteration
+```
+
+By defining the \_\_getitem\_\_ method, it makes the class iterable and you don't need to define the \_\_iter\_\_ method to return an iterator object -- the caller is responsible for tracking the iteration state.  You do need to raise a StopIteration exception when the index is beyond the last day.  
+This allows you to convert it to a list, use in a for loop, etc.
+
+## 12_bonus
+(Difficulty: ★★★★☆) Define a class named CountingList.  It works like a list except it also keeps track of the number of times each element is accessed.  It should also be iterable but its iterator outputs elements in decreasing order of access count.  An access is defined by a call to either \_\_getitem__(self, i) or \_\_setitem\_\_(self, i, val) where i may be an int or a slice.
+```
+>>> d = CountingList(('A', 'B', 'C', 'D', 'E'))
+>>> d[0], d[2], d[2], d[4]   # these call __getitem__
+('A', 'C', 'C', 'E')         
+>>> [d[-1], d[-2], d[4]]
+['E', 'D', 'E']              
+>>> for i in d:
+...     print(i)
+...
+E
+C
+D
+A
+B
+```
+
+As you can probably figure out, you should define CountingList by subclassing from the built-in list class, like
+```
+class CountingList(list):
+    def __init__(self, d = ()):
+        super().__init__(d)
+        # additional code here
+    def __getitem__(self, i):
+        # i is the index or slice.
+        # (1) use the same i to increment the access count,
+        #     your code here...
+        # (2) return what the base class does, as below
+        return super().__getitem__(i)
+    def __iter__(self):
+        # This returns an iterator that outputs elements in 
+        # order of decreasing access count. 
+```
+need to implement the following methods:
+a.	The constructor:\
+It should first call the superclass's \_\_init\_\_ to initialize the list data structure, and then define additional data structures to keep an access count of the elements.  A good one to use is another list structure, which can be indexed using the same index as that for accessing the CountingList's content.  It contains the access count for the corresponding element in the CountingList and should be initialized to zero.\
+b.	The \_\_getitem\_\_(self, i) method:\
+It needs to intercept the accesses to each element by incrementing the corresponding count.  Note that the type of  i parameter can be either int or slice.  In any case, this method needs to return the value, which can can be done by calling its base class's \_\_getitem\_\_ using the same i.\
+c.	Strictly speaking, you also need to intercept the \_\_setitem\_\_(self, i, val) method also.  But you should make sure your \_\_getitem\_\_ works properly before you try the \_\_setitem\_\_.  The idea is the same, since either one counts as one access.\
+d.	The \_\_iter\_\_(self) method:\
+It needs to return an iterator object but in order of decreasing access count.  To do so, one way is to make a list whose elements are (access count, value) and sort in decreasing order, i.e., reverse=True.  Then, you can return an iterator that iterates over the sorted value (but without the access count).
 
