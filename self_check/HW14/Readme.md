@@ -26,7 +26,7 @@ You may replace each tag with a blank space.
 The interface should look be divided into a left pane and a right pane.  The left pane contains buttons for the verbs: 'today', 'tomorrow', 'yesterday', 'add', 'sub', 'swap'.
 It should also contain an Entry widget for text entry and a 'push' button.
 
-The right pane should be a ListBox to show the content of the stack.  For simplicity, the stack grows "downward" so that the bottom of the stack is on the top side of the ListBox, and new items get pushed to below the last item.  Note that [ ] indicates a button that can be clicked.
+The right pane should be a ListBox to show the content of the stack.  For simplicity, the stack grows "downward" so that the bottom of the stack is on the top side of the ListBox, and new items get pushed to below the last item.
 
 In the Entry field, you may enter any valid Python expressions that can be pushed. You can also push buttons to enter instead.  Using the code from the previous assignment, you should be able to enter 
 ```
