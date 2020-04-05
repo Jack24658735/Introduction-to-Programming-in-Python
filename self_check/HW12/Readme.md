@@ -77,12 +77,15 @@ class CountingList(list):
         # This returns an iterator that outputs elements in 
         # order of decreasing access count. 
 ```
-need to implement the following methods:
+need to implement the following methods:\
 a.	The constructor:\
-It should first call the superclass's \_\_init\_\_ to initialize the list data structure, and then define additional data structures to keep an access count of the elements.  A good one to use is another list structure, which can be indexed using the same index as that for accessing the CountingList's content.  It contains the access count for the corresponding element in the CountingList and should be initialized to zero.\
+It should first call the superclass's \_\_init\_\_ to initialize the list data structure, and then define additional data structures to keep an access count of the elements.  A good one to use is another list structure, which can be indexed using the same index as that for accessing the CountingList's content.  It contains the access count for the corresponding element in the CountingList and should be initialized to zero.
+
 b.	The \_\_getitem\_\_(self, i) method:\
-It needs to intercept the accesses to each element by incrementing the corresponding count.  Note that the type of  i parameter can be either int or slice.  In any case, this method needs to return the value, which can can be done by calling its base class's \_\_getitem\_\_ using the same i.\
-c.	Strictly speaking, you also need to intercept the \_\_setitem\_\_(self, i, val) method also.  But you should make sure your \_\_getitem\_\_ works properly before you try the \_\_setitem\_\_.  The idea is the same, since either one counts as one access.\
+It needs to intercept the accesses to each element by incrementing the corresponding count.  Note that the type of  i parameter can be either int or slice.  In any case, this method needs to return the value, which can can be done by calling its base class's \_\_getitem\_\_ using the same i.
+
+c.	Strictly speaking, you also need to intercept the \_\_setitem\_\_(self, i, val) method also.  But you should make sure your \_\_getitem\_\_ works properly before you try the \_\_setitem\_\_.  The idea is the same, since either one counts as one access.
+
 d.	The \_\_iter\_\_(self) method:\
 It needs to return an iterator object but in order of decreasing access count.  To do so, one way is to make a list whose elements are (access count, value) and sort in decreasing order, i.e., reverse=True.  Then, you can return an iterator that iterates over the sorted value (but without the access count).
 
