@@ -21,9 +21,11 @@ $
 (Difficulty: ★★★☆☆) Define a Matrix class to represent numbers as a two-dimensional array.
 
 The constructor for the matrix is a list of lists of numbers.  A 3x3 matrix
+```
 1	2	3
 4	5	6
 7	8	9
+```
 would be constructed as
 M = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
@@ -87,7 +89,7 @@ Note: use itertools.longest_zip in at least one of the methods.
 
 The parameter list consists of either the operands or the operators.  An operand is either a date string or a date-delta string and is pushed on the stack.  An operator is a string that indicates the action to take.  A binary arithmetic operator pops the top two elements from the stack and pushes back the result. 
 
-|argument|	|action|
+| argument       | action        |
 | :-----------:  | :-----------: |
 int	push int onto stack
 date(year, month, day)	push date onto stack
