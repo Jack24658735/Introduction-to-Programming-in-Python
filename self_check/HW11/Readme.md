@@ -9,9 +9,7 @@ The constructor takes variable-length arguments for the coefficients for polynom
 The supported operations include: 
 ```
 ●	adding or subtracting two polynomial functions to make another polynomial function by overloading the + and - operators. (i.e., define __add__ and __sub__ special methods)
-
 ●	evaluating a polynomial function for a given value of x
-
 ●	scaling a polynomial by implementing the __imul__ special method
 ```
 
@@ -59,7 +57,7 @@ NewTemp(122.0, 'F')
 
 
 ## 11_3
-(Difficulty: ★★★★☆) Write a NewList class by inheriting from the built-in list class to support the following operations:
+(Difficulty: ★★★★☆) Write a NewList class by inheriting from the built-in list class to support the following operations:\
 a.	list multiplication (also known as cross-product) by overloading the @ operator (define the \_\_matmul\_\_(self, RHS) special method)
 ```
 >>> NewList([6,7,8]) @ NewList(['a', 'b'])
