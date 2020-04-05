@@ -91,17 +91,16 @@ The parameter list consists of either the operands or the operators.  An operand
 
 | argument       | action        |
 | :-----------:  | :-----------: |
-int	push int onto stack
-date(year, month, day)	push date onto stack
-days(d)	push days delta onto the stack
-weeks(w)	push weeks delta onto the stack
-months(m)	push months delta onto the stack
-'today'
-'tomorrow'
-'yesterday'	push today's date, tomorrow's date, or yesterday's date onto the stack
-'add'	A = pop(); B = pop(); push(A+B) 
-'sub'	A= pop(); B = pop(), push(A-B)
-'swap'	A=pop(); B=pop(); push(A); push(B)
+|int|	push int onto stack|
+|date(year, month, day)|	push date onto stack|
+|days(d)| push days delta onto the stack|
+|weeks(w)| push weeks delta onto the stack|
+|months(m)|	push months delta onto the stack|
+|'today', 'tomorrow', 'yesterday'|	push today's date, tomorrow's date, or yesterday's date onto the stack
+|'add'|	A = pop(); B = pop(); push(A+B) 
+|'sub'|	A = pop(); B = pop(), push(A-B)
+|'swap'|A = pop(); B = pop(); push(A); push(B)
+
 Write a stack-style date-time calculator function called datecalc.  Here is an example
 
 ```
