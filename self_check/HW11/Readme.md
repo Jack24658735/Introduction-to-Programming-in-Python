@@ -7,7 +7,7 @@ f(x) = a<sub>0</sub> + a<sub>1</sub>x + a<sub>2</sub>x<sup>2</sup> + a<sub>3</su
 The constructor takes variable-length arguments for the coefficients for polynomials to the 0, 1, 2, … degrees.
 
 The supported operations include
-:::
+:::include
 ●	adding or subtracting two polynomial functions to make another polynomial function by overloading the + and - operators. (i.e., define __add__ and __sub__ special methods)
 
 ●	evaluating a polynomial function for a given value of x
