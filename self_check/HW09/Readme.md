@@ -95,6 +95,7 @@ Chapter 4. Conclusions
 ```
 
 Hints:
+
 a. How should the parameter list for the function be revised to accommodate the plug-in function?  Should it have a default value?
 
 b. How does your revised number_outline() function decide whether to use default formatting or to call the plug-in function for formatting?
