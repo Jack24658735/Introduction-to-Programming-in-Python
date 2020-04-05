@@ -50,11 +50,7 @@ d.	The __repr__() method should return a string that, when printed, is a constru
 
 e.	Define an instance method named get_temp().  It should return a tuple (degree, unit).   It takes one optional argument for the unit, which should be either 'C' (default) or 'F', in the same way as the constructor.
 
-f.	Define a property named degree.  You should define two methods
-
-### i.	get_degree(), which returns the value of the _degree attribute
-### ii.	set_degree(), which assigns the parameter value to the _degree attribute
-### iii.	use degree = property(...) to make degree a property
+f.	Define a property named degree.  You should define two methods. Get_degree(), which returns the value of the \_degree attribute. Set_degree(), which assigns the parameter value to the \_degree attribute. In the end, use degree = property(...) to make degree a property.
 
 g.	Define a class method named set_format() that takes a formatting string to be used by the subsequent __repr__() calls to format the degree.
 
