@@ -1,8 +1,9 @@
 # HW13
 
 ## 13_1
-1.	(Difficulty: ★★☆☆☆) Write a "rock, paper, scissors" game using the random module.
+(Difficulty: ★★☆☆☆) Write a "rock, paper, scissors" game using the random module.
 
+```
 $ python3 rps.py
 rock, paper, scissors? rock
 I am also rock - tied!
@@ -14,7 +15,7 @@ rock, paper, scissors? rabbit
 rabbit is invalid - try again? quit
 bye
 $ 
-
+```
 
 ## 13_2
 (Difficulty: ★★★☆☆) Define a Matrix class to represent numbers as a two-dimensional array.
