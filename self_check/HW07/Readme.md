@@ -111,6 +111,7 @@ Tiki_line.txt
 #9 grey
 
 Operation_list.txt
+```
 # operation list:
 
 # help - check the operation list.
@@ -122,7 +123,7 @@ Operation_list.txt
 # Tiki Toast - remove the tiki at the bottom of the line.
 # Reset - Reset Tiki line.
 # quit - quit the game and say goodbye.
-
+```
 Write a program named mini_Tiki_Topple.py,
 [NOTE]
 +	The program should prompt the user to enter an operation in the Operation_list.txt.
