@@ -1,7 +1,7 @@
 # HW14
 
 ## 14_1
-1.	(Difficulty: ★★☆☆☆) Write a command-line program named dehtml.py to remove tags from an HTML file and write the file into a plain text file.
+(Difficulty: ★★☆☆☆) Write a command-line program named dehtml.py to remove tags from an HTML file and write the file into a plain text file.
 
 Background: HTML, for Hypertext Markup Language, is the way web pages are formatted.  It contains tags in the form of of angle bracketed tags. 
 The purpose of dehtml.py is to take out these angle-bracketed tags (i.e., formatting) and leave just the original text.
@@ -27,29 +27,6 @@ The interface should look be divided into a left pane and a right pane.  The lef
 It should also contain an Entry widget for text entry and a 'push' button.
 
 The right pane should be a ListBox to show the content of the stack.  For simplicity, the stack grows "downward" so that the bottom of the stack is on the top side of the ListBox, and new items get pushed to below the last item.  Note that [ ] indicates a button that can be clicked.
-
-
-
-
-
-
-[today]
-[tomorrow]
-[yesterday]
-[add]
-[sub]
-[swap]
-
-	[push]
-error message here	
-date(2019, 12, 3)
-date(2019, 12, 4)
-date(2019, 12, 2)
-days(4)
-
-
-
-[Clear]               [Quit]
 
 In the Entry field, you may enter any valid Python expressions that can be pushed. You can also push buttons to enter instead.  Using the code from the previous assignment, you should be able to enter 
 
