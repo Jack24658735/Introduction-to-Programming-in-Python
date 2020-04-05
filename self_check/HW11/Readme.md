@@ -6,14 +6,14 @@ f(x) = a<sub>0</sub> + a<sub>1</sub>x + a<sub>2</sub>x<sup>2</sup> + a<sub>3</su
 
 The constructor takes variable-length arguments for the coefficients for polynomials to the 0, 1, 2, … degrees.
 
-The supported operations include
-:::include
+The supported operations include: 
+```
 ●	adding or subtracting two polynomial functions to make another polynomial function by overloading the + and - operators. (i.e., define __add__ and __sub__ special methods)
 
 ●	evaluating a polynomial function for a given value of x
 
 ●	scaling a polynomial by implementing the __imul__ special method
-:::
+```
 
 ```
 >>> f = Polynomial(3, 2, 0, 5, 4)
@@ -31,13 +31,13 @@ Polynomial(6, 4, 0, 10, 8)
 
 ## 11_2
 (Difficulty: ★★★☆☆) Define a NewTemp class by subclassing from the Temperature class from last week so that it can support 
-
-a.	operator overloading for + and -.  The unit of the operation defaults to the unit of the left-hand-side.
-
-b.	changing units, including 'C' (Celsius), 'F' (Fahrenheit)
+a.	operator overloading for + and -.  The unit of the operation defaults to the unit of the left-hand-side.\
+b.	changing units, including 'C' (Celsius), 'F' (Fahrenheit)\
 
 ```
-Note: define __add__(self, RHS) and __sub__(self, RHS) methods to overload the + and - operators. You must check the RHS (= "right hand side") parameter's type to make sure it is an instance of Temperature (base class is okay -- doesn't have to be NewTemp), or it could be a number (int or float).  If it is a Temperature, convert it to the same unit as self's unit before adding or subtracting.  If it is a number (int or float), simply assume it is of the same unit.
+Note: define __add__(self, RHS) and __sub__(self, RHS) methods to overload the + and - operators. \
+You must check the RHS (= "right hand side") parameter's type to make sure it is an instance of Temperature (base class is okay -- doesn't have to be NewTemp), or it could be a number (int or float). \
+If it is a Temperature, convert it to the same unit as self's unit before adding or subtracting.  If it is a number (int or float), simply assume it is of the same unit.\
 ```
 
 ```
