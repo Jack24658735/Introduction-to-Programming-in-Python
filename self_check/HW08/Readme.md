@@ -13,11 +13,11 @@
 | argument     | action     |
 | :-----------:  | :-----------: |
 | int or float literal     | push int or float literal onto stack     |
-	
-'add'	A = pop(); B = pop(); push(A+B) 
-'sub'	A= pop(); B = pop(), push(A-B)
-'mul'	A=pop(); B = pop(); push(A*B)
-'swap'	A=pop(); B=pop(); push(A); push(B)
+|'add'|	A = pop(); B = pop(); push(A+B) |
+|'sub'|	A= pop(); B = pop(), push(A-B)|
+|'mul'|	A=pop(); B = pop(); push(A*B) |
+|'swap'	A=pop(); B=pop(); push(A); push(B)|
+
 ```
 >>> postcalc(1, 2, 3, 4)
 [1, 2, 3, 4]
