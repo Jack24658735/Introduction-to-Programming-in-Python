@@ -17,7 +17,7 @@ def pascal(row, column):
 The function can be defined recursively as follows:
 ```
 pascal(row, col) = {	1	if col = 0 or col = row
-	??	if 0 < col < row
+			??	if 0 < col < row
  ```
 Fill in the ?? above and write this as a recursive function.  You may also check the range of the parameter values.  If out of range then it should raise a ValueError exception.
 
