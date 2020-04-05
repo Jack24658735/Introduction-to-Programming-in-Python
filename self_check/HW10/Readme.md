@@ -39,17 +39,26 @@ which is a more concise way than saying f.evaluate(3).
 
 ## 10_2
 (Difficulty: ★★★☆☆) Define a class for Temperature.  The requirements are
+
 a.	The constructor should take two arguments (degree, unit): 
+
 b.	degree is an int or float
-i.	The constructor needs to check if degree is an int or float; if not, raise a TypeError.
+
+### i.	The constructor needs to check if degree is an int or float; if not, raise a TypeError.
 c.	unit defaults to 'C' for Celsius, but it can be 'F' for Fahrenheit
-i.	The constructor needs to check if the unit is an allowed character; if not, raise a ValueError.  Actually, lower case 'c' and 'f' are also accepted, but they should be converted to the upper case.
+
+### i.	The constructor needs to check if the unit is an allowed character; if not, raise a ValueError.  Actually, lower case 'c' and 'f' are also accepted, but they should be converted to the upper case.
+
 d.	The __repr__() method should return a string that, when printed, is a constructor call that yields the same value as the object.
+
 e.	Define an instance method named get_temp().  It should return a tuple (degree, unit).   It takes one optional argument for the unit, which should be either 'C' (default) or 'F', in the same way as the constructor.
+
 f.	Define a property named degree.  You should define two methods
-i.	get_degree(), which returns the value of the _degree attribute
-ii.	set_degree(), which assigns the parameter value to the _degree attribute
-iii.	use degree = property(...) to make degree a property
+
+### i.	get_degree(), which returns the value of the _degree attribute
+### ii.	set_degree(), which assigns the parameter value to the _degree attribute
+### iii.	use degree = property(...) to make degree a property
+
 g.	Define a class method named set_format() that takes a formatting string to be used by the subsequent __repr__() calls to format the degree.
 
 ```
