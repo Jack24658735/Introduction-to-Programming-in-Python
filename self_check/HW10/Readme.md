@@ -1,53 +1,170 @@
-# HW6
+# HW10
 
-## 6_1
-Write a Python program named dateconv.py to prompt the user for date in US format of mm/dd/yyyy (e.g., '02/15/2019' and outputs it in the full format of 'February 15, 2019'.  You may assume the dates are given as decimal literals separated by '/', but you should also check if the dates are in range.  If the dates are out of range, then you should inform the user what is wrong. 
-
-For instance
+## 10_1
+(Difficulty: ★★☆☆☆) Define a class for a polynomial for a single variable x with integer coefficients and powers.   That is,
+f(x) = a0 + a1 x + a2 x2 + a3 x3 + a4 x4 +  ...
+Your Polynomial constructor would take variable-length arguments for the coefficients from the 0th order and up.  For instance, 
+              f(x) = 3 + 5 x + 4 x2 + 7 x3 + x4 
+is represented by 
 ```
-$ python3 dateconv.py
-enter date in mm/dd/yyyy: 02/15/2019
-February 15, 2019
-enter date in mm/dd/yyyy: 02/29/2019
-Invalidate day 29 for February: not a leap year
-enter date in mm/dd/yyyy: 01/01/2001
-January 1, 2001
-enter date in mm/dd/yyyy: 13/10/2038
-Invalid month 13: should be between 01 and 12
-enter date in mm/dd/yyyy: 10/32/2019
-Invalid day for October: should be between 01..31
-enter date in mm/dd/yyyy: 04/31/2019
-Invalid day for April: should be between 01..30
-enter date in mm/dd/yyyy: quit
-bye
-$ _
+>>> f = Polynomial(3, 5, 4, 7, 1)
+It should support a method named evaluate(xvalue):
+>>> f.evaluate(3)
+324
 ```
 
-Hint: Build up your program one piece at a time.  First, simply use a loop to prompt for input and check for 'quit'.  If not quit then first use a print statement to check if the input is as you expect.  Once confirmed, you can use str's split() method to split a string by its separator ('/' in this case).  Then, you can check the array of strings, assuming you can convert them to int, and check if each one is within range.  Month can be checked easily.  Day depends on the month, and for the month of February, day also depends on whether the year is a leap year (28 or 29 days).  If any field is invalid, then report the error and loop again.  If all fields are correct then  display the full month string.
-You may store the names of the months all in a list indexed by the month number or in a dictionary keyed by the month.  You may use the leap year function from a previous lecture.
+because 3 + 5 * 3 + 4 * 32 + 7 * 33 + 34
+                  = 3 + 15 + 36 + 189 + 81 
+           = 324
+Your Polynomial class may look like this:
+```
+class Polynomial:
+    def __init__(self, *coeff):
+        # your code here to remember to coefficients
+        # 
+    def evaluate(self, xvalue):
+        # return the sum of coefficienti * xvalue i 
 
-## 6_2
-[somewhat challenging]  Write a Python program named long_multiply(a, b) to return a string that shows the steps in a long multiplication.  (note: a is called the multiplier, and b is the multiplicand) For example
+Extra information: 
+If you define a special method named __call__, then the object instance can be called just like a function.  To do this, you can simply do
+    __call__ = evaluate  
+    # indent it at the same level as the def for the methods
+this way, you define __call__ to be another name for the evaluate method, but because it is a special symbol, Python lets you say
+>>> f(3)
+324 
+which is a more concise way than saying f.evaluate(3).
 ```
->>> print(long_multiply(12, 34))
-  12
-x)34
-----
-  48
- 36 
-----
- 408
+
+
+
+## 10_2
+(Difficulty: ★★★☆☆) Define a class for Temperature.  The requirements are
+a.	The constructor should take two arguments (degree, unit): 
+b.	degree is an int or float
+i.	The constructor needs to check if degree is an int or float; if not, raise a TypeError.
+c.	unit defaults to 'C' for Celsius, but it can be 'F' for Fahrenheit
+i.	The constructor needs to check if the unit is an allowed character; if not, raise a ValueError.  Actually, lower case 'c' and 'f' are also accepted, but they should be converted to the upper case.
+d.	The __repr__() method should return a string that, when printed, is a constructor call that yields the same value as the object.
+e.	Define an instance method named get_temp().  It should return a tuple (degree, unit).   It takes one optional argument for the unit, which should be either 'C' (default) or 'F', in the same way as the constructor.
+f.	Define a property named degree.  You should define two methods
+i.	get_degree(), which returns the value of the _degree attribute
+ii.	set_degree(), which assigns the parameter value to the _degree attribute
+iii.	use degree = property(...) to make degree a property
+g.	Define a class method named set_format() that takes a formatting string to be used by the subsequent __repr__() calls to format the degree.
+
 ```
-Hint:  You should construct the return value of the function by concatenating different strings together.  It is probably easier if you just append the strings into a list and join them by '\n'.join(listOfStrings).
-a)	Before you join the strings, you need to determine the width to format each line.  This is the maximum number of characters needed to represent the multiplier, multiplicand + 2 (because 'x)' takes two positions), and the product.
-b)	Create the following strings and append each one into a list:
-i)	string for the multiplier with the width (right aligned), 
-ii)	'x)' concatenated the multiplicand formatted with width-2 (also right-aligned),
-iii)	string of '-' repeated for width times
-iv)	loop over the partial products of multiplier * each digit of the multiplicand, but each time shifted one position to the left.
-v)	anotherr string of '-' repeated for width times
-vi)	finally, the product as a string, formatted to the same width, right aligned.
-c)	finally, return '\n'.join( list of strings created in above steps )
-Note: you may assume a and b are both nonnegative integers.  Your code should work with integers of any number of digits.
+>>> c = Temperature(10)
+>>> d = Temperature(68, 'F')
+>>> c
+'10.0 C'
+>>> d
+'68.0 F'
+>>> c.get_temp()
+(10, 'C')
+>>> c.get_temp('F')
+(50.0, 'F')
+>>> d.get_temp()
+(68, 'F')
+>>> d.get_temp('C')
+(20.0, 'C')
+>>> c.degree
+10
+>>> c.degree = 50
+>>> c
+(50, 'C')
+>>> c.get_temp('F')
+(122.0, 'C')
+>>> c
+'50.0 C'
+>>> c.set_format('%d')  # this is a class method call
+>>> c
+'50 C'
+>>> c.set_format('%.3f')
+>>> c
+'50.000 C'
+>>> d
+'68.000 F'
+```
+
+## 10_bonus
+(Difficulty: ★★★★☆)  Write a Python program that models the mother-side relationship in a family. 
+
+```
+class Person:
+    def __init__(self, name):
+        # your code here
+    def __repr__(self):
+        # your code here
+
+    @property
+    def name(self):
+        # your code here. read-only property
+
+    @property
+    def children(self):
+        # your code here. read-only property
+
+    def add_children(self, *children):
+        # your code here.
+        # construct each child, linked with mother and sisters
+
+    @property
+    def mother(self):
+        # your code here. read-only property
+
+    @property
+    def sisters(self):
+        # your code here. read-only property
+        # mother's daughters minus self
+
+    @property
+    def aunts(self):
+        # your code here: return list of aunts. read-only
+        # mother's sisters
+
+    @property
+    def grandchildren(self):
+        # your code here: list of ALL grandchildren. read-only
+        # trick is how to combine lists from daughters'
+        # daughters.
+
+    @property
+    def family_tree(self):
+        # make a dictionary for the family tree
+        # from self to descendants but not to ancestors
+        # hint: recursion
+        # read-only property.
+```
+```
+>>> p = Person('Wilma')  # constructor call
+>>> p.children              # no children initially
+[]
+>>> p.add_children('Mary', 'Ann', 'Jill', 'Jane')
+>>> p.children            # husband & wife have same children
+[Person('Mary'), Person('Ann'), Person('Jill'), Person('Jane')]
+>>> mary, ann, jill, jane = p.children
+>>> mary
+Person('Mary')
+>>> mary.mother
+Person('Wilma')
+>>> mary.sisters
+[Person('Ann'), Person('Jill'), Person('Jane')]
+>>> mary.children
+[]
+>>> mary.add_children('Lynn', 'Cindy')
+>>> lynn, cindy = mary.children
+>>> lynn.aunts
+[Person('Ann'), Person('Jill'), Person('Jane')]
+>>> lynn.grandmother
+[Person('Wilma')]
+>>> jill.add_children('Kate')
+>>> p.family_tree
+{'Wilma': {'Mary': {'Lynn': {}, 'Cindy': {}}, 'Ann': {}, 'Jill': {'Kate'}, 'Jane': {}}
+>>> p.grandchildren
+[Person('Lynn'), Person('Cindy'), Person('Kate')]
+>>> 
+```
+
+
 
 
